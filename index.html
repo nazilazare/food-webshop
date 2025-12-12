@@ -1,1 +1,202 @@
+<!doctype html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FRAM — Sustainable Food Delivery</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- Backdrop for drawer -->
+    <div class="backdrop" id="backdrop" hidden></div>
+
+    <!-- Drawer (popover menu) -->
+    <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Main menu">
+        <div class="drawer__header">
+            <button class="icon-btn" id="closeMenu" aria-label="Close menu">✕</button>
+            <div class="brand">FRAM</div>
+        </div>
+
+        <nav class="drawer__nav" aria-label="Primary navigation">
+            <a href="#products">PRODUCTS</a>
+            <a href="#chat">CHAT</a>
+            <a href="#checkout">CHECKOUT</a>
+        </nav>
+    </aside>
+
+    <!-- Header -->
+    <header class="topbar">
+        <button class="icon-btn" id="openMenu" aria-label="Open menu" aria-controls="drawer"
+            aria-expanded="false">☰</button>
+        <div class="brand">FRAM</div>
+        <a class="cart-btn" href="#checkout" aria-label="Go to checkout">●</a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Hero section">
+        <div class="hero__inner">
+            <h1 class="hero__title">FRAM</h1>
+            <div class="hero__line" aria-hidden="true"></div>
+            <p class="hero__tag">HOME DELIVERY FROM<br />YOUR LOCAL FARMS</p>
+        </div>
+    </section>
+
+    <main class="page">
+        <!-- Two feature cards -->
+        <section class="features" aria-label="Highlights">
+            <article class="feature-card" id="products" aria-labelledby="seasonal-title">
+                <h2 class="feature-card__title" id="seasonal-title">SHOP OUR SEASONAL<br />SELECTION</h2>
+                <p class="feature-card__sub">Updated every week</p>
+
+                <img class="feature-card__img seasonal-img" src="images/seasonal.png"
+                    alt="Basket of seasonal vegetables" />
+
+                <p class="feature-card__text">
+                    New produce is added continuously as time <br /> goes by and the seasons change.
+                </p>
+
+                <a class="btn" href="products.html">Browse our selection</a>
+            </article>
+
+            <article class="feature-card" id="chat" aria-labelledby="ask-title">
+                <h2 class="feature-card__title" id="ask-title">ASK US ABOUT<br />ANYTHING</h2>
+                <p class="feature-card__sub">All your questions answered</p>
+
+                <img class="feature-card__img seasonal-img" src="images/about.png"
+                    alt="Local farm field with a person" />
+
+                <p class="feature-card__text">
+                    New produce is added continuously as time <br /> goes by and the seasons change.
+                </p>
+
+                <a class="btn" href="chat.html">Go to chat</a>
+            </article>
+        </section>
+
+        <!-- How it works -->
+        <section class="how" aria-labelledby="how-title">
+            <div class="how__left">
+                <h2 class="how__title" id="how-title">THIS IS HOW IT<br />WORKS</h2>
+            </div>
+
+            <div class="how__right" role="list">
+                <div class="how__row" role="listitem">
+                    <h3 class="how__rowTitle">ORDER GROCERIES</h3>
+                    <p class="how__rowText">
+                        Fram is a circular service that ensures your kitchen is always stocked with the essentials you
+                        need. Browse our seasonal selection, choose your items, and place your order online.
+                        <br /><a href="#products">See our stock here</a>.
+                    </p>
+                </div>
+
+                <div class="how__row" role="listitem">
+                    <h3 class="how__rowTitle">STOCK UP</h3>
+                    <p class="how__rowText">
+                        Once your order arrives, unpack the produce and store it however it works best for you. Hold
+                        onto the containers—they’re yours to keep until your next order.
+                    </p>
+                </div>
+
+                <div class="how__row" role="listitem">
+                    <h3 class="how__rowTitle">SCAN &amp; REORDER</h3>
+                    <p class="how__rowText">
+                        Ready for a refill? Grab the containers from your last order and scan the QR code with our app
+                        or your phone’s camera. This instantly adds the items back to your cart, making reordering a
+                        breeze.
+                    </p>
+                </div>
+
+                <div class="how__row" role="listitem">
+                    <h3 class="how__rowTitle">SWAP &amp; REUSE</h3>
+                    <p class="how__rowText">
+                        When we deliver your new order, simply leave your empty containers outside. We’ll pick them up,
+                        clean them thoroughly, and reuse them for future deliveries.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular -->
+        <section class="popular" aria-labelledby="popular-title">
+            <h2 class="popular__title" id="popular-title">POPULAR PRODUCE</h2>
+
+            <div class="products">
+                <!-- Product 1 -->
+                <article class="product">
+                    <div class="product__media">
+                        <img src="images/oats.png" alt="Oats" />
+                        <button class="product__btn" type="button">Add to basket ↑</button>
+                    </div>
+                    <div class="product__info">
+                        <div>
+                            <h3 class="product__name">Oats</h3>
+                            <p class="product__meta">1 kg</p>
+                        </div>
+                        <p class="product__price">48 kr / kg</p>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product">
+                    <div class="product__media">
+                        <img src="images/redOnions.png" alt="Red onions" />
+                        <button class="product__btn" type="button">Add to basket ↑</button>
+                    </div>
+                    <div class="product__info">
+                        <div>
+                            <h3 class="product__name">Red Onions</h3>
+                            <p class="product__meta">0.5 kg</p>
+                        </div>
+                        <p class="product__price">48 kr / kg</p>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product">
+                    <div class="product__media">
+                        <img src="images/garlic.png" alt="Garlic" />
+                        <button class="product__btn" type="button">Add to basket ↑</button>
+                    </div>
+                    <div class="product__info">
+                        <div>
+                            <h3 class="product__name">Garlic</h3>
+                            <p class="product__meta">0.2 kg</p>
+                        </div>
+                        <p class="product__price">48 kr / kg</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer__inner">
+                <h1 class="footer__brand">FRAM</h1>
+
+                <div class="newsletter">
+                    <h2 class="newsletter__title">STAY UPDATED</h2>
+                    <p class="newsletter__text">
+                        Sign up for our newsletter to be the first to know about new produce or other exciting news!
+                    </p>
+
+                    <form class="newsletter__form" action="#" method="post">
+                        <label class="sr-only" for="firstName">First name</label>
+                        <input id="firstName" name="firstName" type="text" placeholder="First name" />
+
+                        <label class="sr-only" for="email">E-mail address</label>
+                        <input id="email" name="email" type="email" placeholder="E-mail address" required />
+
+                        <button class="newsletter__btn" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </footer>
+
+        <section id="checkout" class="spacer" aria-label="Checkout anchor"></section>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
