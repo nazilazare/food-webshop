@@ -282,6 +282,11 @@ a{color:inherit}
   text-decoration:none;
   font-size:12px;
   letter-spacing:.06em;
+  transition: text-decoration 0.2s ease;
+}
+
+.drawer__nav a:hover{
+  text-decoration: underline;
 }
 
 /* Desktop layout */
