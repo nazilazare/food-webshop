@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FRAM — Sustainable Food Delivery</title>
+    <link rel="stylesheet" href="css/index_style.css" />
+</head>
+
+<body>
+    <!-- Backdrop for drawer -->
+    <div class="backdrop" id="backdrop" hidden></div>
+
+    <!-- Drawer (popover menu) -->
+    <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Main menu">
+        <div class="drawer__header">
+            <button class="icon-btn" id="closeMenu" aria-label="Close menu">✕</button>
+            <div class="brand">FRAM</div>
+        </div>
+
+        <nav class="drawer__nav" aria-label="Primary navigation">
+            <a href="#products">PRODUCTS</a>
+            <a href="#chat">CHAT</a>
+            <a href="#checkout">CHECKOUT</a>
+        </nav>
+    </aside>
+
+    <!-- Header -->
+    <header class="topbar">
+        <button class="icon-btn" id="openMenu" aria-label="Open menu" aria-controls="drawer"
+            aria-expanded="false">☰</button>
+        <div class="brand">FRAM</div>
+        <a class="cart-btn" href="#checkout" aria-label="Go to checkout">●</a>
+    </header>
+
+    <main class="produce_page">
+        <!-- Produce -->
+        <section class="produce" aria-labelledby="produce-title">
+            <h1 class="produce__title" id="produce-title">PRODUCE</h1>
+            <p class="produce__text">
+                Explore our selection of seasonal produce, sourced directly from local farms to ensure peak freshness
+                and quality.
+                Every item is chosen with care, supporting sustainable practices and bringing the best of the harvest to
+                your table
+            </p>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
