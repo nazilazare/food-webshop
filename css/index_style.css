@@ -362,18 +362,22 @@ img[src$="garlic.png"]{
 .mapRow{
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
+  gap: 0; /* remove gap to control spacing manually */
   align-items: start;
+  border-top: 1px solid rgba(0,0,0,1); /* horizontal line above */
 }
 .mapRow__title{
   margin: 0;
   /* increase font size for the partnering farms title */
   font-size: 16px;
+  padding: 26px 20px; /* equal padding top and bottom */
+  border-bottom: 1px solid rgba(0,0,0,1); /* line below title in mobile */
+  text-align: center;
 }
 .mapRow__card{
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 1px 0 rgba(0,0,0,.15);
+  margin-top: 20px; /* space between border and map */
 }
 .mapRow__card iframe{
   display: block;
@@ -384,12 +388,21 @@ img[src$="garlic.png"]{
 @media (min-width: 900px){
   .mapRow{
     grid-template-columns: 300px 1fr;
-    gap: 22px;
-    align-items: center;
+    gap: 0; /* remove gap to allow border to touch */
+    align-items: stretch; /* make both sides equal height */
   }
   .mapRow__title{ 
-    text-align: left; 
+    text-align: center; 
     font-size: 18px; /* a bit larger on desktop */
+    border-right: 1px solid rgba(0,0,0,1); /* vertical divider line */
+    border-bottom: none; /* remove bottom border on desktop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mapRow__card{
+    padding: 40px; /* add space around the map */
+    border-radius: 0; /* remove radius for seamless look */
   }
 }
 
