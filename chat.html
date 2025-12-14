@@ -34,16 +34,130 @@
         <a class="cart-btn" href="#checkout" aria-label="Go to checkout">●</a>
     </header>
 
-
-
-       
-
-        
+    <!-- Chat Page -->
+    <main class="chat-page">
+        <div class="chat-container">
+            <div class="chat-box">
+                <div class="chat-header">
+                    <label class="chat-brand">FRAM</label>
+                    <span class="chat-prompt">What can I help you with today?</span>
+                </div>
+                
+                <!-- Messages Area -->
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will appear here -->
+                </div>
+                
+                <div class="chat-input-wrapper">
+                    <textarea 
+                        id="chatInput"
+                        class="chat-input" 
+                        placeholder="Ask your question"
+                        rows="3"></textarea>
+                    <button class="chat-send-btn" id="sendBtn" aria-label="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <section id="checkout" class="spacer" aria-label="Checkout anchor"></section>
     </main>
 
     <script src="js/main.js"></script>
+    <script>
+        // Chat functionality
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const chatMessages = document.getElementById('chatMessages');
+
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                // Disable input while processing
+                chatInput.disabled = true;
+                sendBtn.disabled = true;
+
+                // Create user message element
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'chat-message user-message';
+                messageDiv.textContent = message;
+                
+                // Add to messages container
+                chatMessages.appendChild(messageDiv);
+                
+                // Clear input
+                chatInput.value = '';
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Show typing indicator
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'chat-message bot-message typing-indicator';
+                typingDiv.textContent = 'FRAM is typing...';
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                try {
+                    // Call OpenAI API via our server
+                    const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ message })
+                    });
+
+                    // Remove typing indicator
+                    typingDiv.remove();
+
+                    if (!response.ok) {
+                        throw new Error('Failed to get response');
+                    }
+
+                    const data = await response.json();
+                    
+                    // Create bot response element
+                    const botMessageDiv = document.createElement('div');
+                    botMessageDiv.className = 'chat-message bot-message';
+                    botMessageDiv.textContent = data.reply;
+                    chatMessages.appendChild(botMessageDiv);
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    typingDiv.remove();
+                    
+                    // Show error message
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'chat-message bot-message error-message';
+                    errorDiv.textContent = 'Sorry, I encountered an error. Please try again.';
+                    chatMessages.appendChild(errorDiv);
+                }
+
+                // Re-enable input
+                chatInput.disabled = false;
+                sendBtn.disabled = false;
+                chatInput.focus();
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        // Send on button click
+        sendBtn.addEventListener('click', sendMessage);
+
+        // Send on Enter key (but allow Shift+Enter for new line)
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
 </body>
 
 </html>
