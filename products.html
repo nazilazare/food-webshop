@@ -40,11 +40,134 @@
             <h1 class="produce__title" id="produce-title">PRODUCE</h1>
             <p class="produce__text">
                 Explore our selection of seasonal produce, sourced directly from local farms to ensure peak freshness
-                and quality.
-                Every item is chosen with care, supporting sustainable practices and bringing the best of the harvest to
-                your table
+                and quality. Every item is chosen with care, supporting sustainable practices and bringing the best of
+                the harvest to your table.
             </p>
         </section>
+
+        <!-- Product grid -->
+        <section class="popular" aria-label="Product list">
+            <div class="products">
+                <!-- Product: Oats -->
+                <article class="product">
+                    <div class="product__media">
+                        <img src="images/oats.png" alt="Oats" />
+                        <button class="product__btn" type="button">Add to basket ↑</button>
+                    </div>
+                    <div class="product__info">
+                        <div>
+                            <h3 class="product__name">Oats</h3>
+                            <p class="product__meta">1 kg</p>
+                        </div>
+                        <p class="product__price">16 kr / kg</p>
+                    </div>
+                </article>
+
+                <!-- Product: Red Onions -->
+                <article class="product">
+                    <div class="product__media">
+                        <img src="images/redOnions.png" alt="Red Onions" />
+                        <button class="product__btn" type="button">Add to basket ↑</button>
+                    </div>
+                    <div class="product__info">
+                        <div>
+                            <h3 class="product__name">Red Onions</h3>
+                            <p class="product__meta">1 kg</p>
+                        </div>
+                        <p class="product__price">45 kr / kg</p>
+                    </div>
+                </article>
+
+                <!-- Product: Garlic -->
+                <article class="product">
+                    <div class="product__media">
+                        <img src="images/garlic.png" alt="Garlic" />
+                        <button class="product__btn" type="button">Add to basket ↑</button>
+                    </div>
+                    <div class="product__info">
+                        <div>
+                            <h3 class="product__name">Garlic</h3>
+                            <p class="product__meta">0.2 kg</p>
+                        </div>
+                        <p class="product__price">38 kr</p>
+                    </div>
+                </article>
+
+                <!-- Product: Potato -->
+                <article class="product">
+                    <div class="product__media">
+                        <img src="images/potato.png" alt="Potato" />
+                        <button class="product__btn" type="button">Add to basket ↑</button>
+                    </div>
+                    <div class="product__info">
+                        <div>
+                            <h3 class="product__name">Potato</h3>
+                            <p class="product__meta">1 kg</p>
+                        </div>
+                        <p class="product__price">32 kr / kg</p>
+                    </div>
+                </article>
+
+                <!-- Product: Carrot -->
+                <article class="product">
+                    <div class="product__media">
+                        <img src="images/carrot.png" alt="Carrot" />
+                        <button class="product__btn" type="button">Add to basket ↑</button>
+                    </div>
+                    <div class="product__info">
+                        <div>
+                            <h3 class="product__name">Carrot</h3>
+                            <p class="product__meta">1 kg</p>
+                        </div>
+                        <p class="product__price">48 kr / kg</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Partner farms / Map section -->
+        <section class="popular" aria-label="Partner farms">
+            <div class="mapRow">
+                <h1 class="popular__title mapRow__title">SEE OUR PARTNERING FARMS</h1>
+                <div class="mapRow__card">
+                    <iframe
+                        title="Map to partner farms"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19504.410676304814!2d10.732!3d59.913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLocal%20Farm!5e0!3m2!1sen!2sno!4v0000000000"
+                        width="100%"
+                        height="300"
+                        style="border:0;"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer__inner">
+                <h1 class="footer__brand">FRAM</h1>
+
+                <div class="newsletter">
+                    <h2 class="newsletter__title">STAY UPDATED</h2>
+                    <p class="newsletter__text">
+                        Sign up for our newsletter to be the first to know about new produce or other exciting news!
+                    </p>
+
+                    <form class="newsletter__form" action="#" method="post">
+                        <label class="sr-only" for="firstName">First name</label>
+                        <input id="firstName" name="firstName" type="text" placeholder="First name" />
+
+                        <label class="sr-only" for="email">E-mail address</label>
+                        <input id="email" name="email" type="email" placeholder="E-mail address" required />
+
+                        <button class="newsletter__btn" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </footer>
+
+        <section id="checkout" class="spacer" aria-label="Checkout anchor"></section>
     </main>
     <script src="js/main.js"></script>
 </body>
