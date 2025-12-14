@@ -6,7 +6,7 @@
   --white: #FFFFFF;
   
   /* Text & Interface */
-  --text: #0B0A68;
+  --text: #0B0A08;
   
   /* Colors */
   --red: #DC4131;
@@ -65,8 +65,8 @@ a{color:inherit}
   width:22px;height:22px;
   border-radius:999px;
   text-decoration:none;
-  background:#32b26b;
-  color:#32b26b; /* dot style */
+  background:var(--green);
+  color:var(--green); /* dot style */
 }
 
 /* Hero */
@@ -250,7 +250,7 @@ a{color:inherit}
   /* width: 390px; */
   /* height: 844px; */
   background: var(--green);
-  color:#000;
+  color:var(--text);
   transform: translateX(-100%);
   transition: transform 200ms ease;
   z-index:11;
@@ -464,7 +464,7 @@ img[src$="garlic.png"]{
   bottom: 10px;
   border: 0;
   background: rgba(0,0,0,.55);
-  color: #fff;
+  color: var(--white);
   padding: 8px 10px;
   border-radius: 999px;
   font-size: 11px;
@@ -677,7 +677,7 @@ img[src$="garlic.png"]{
 .chat-prompt{
   font-size: 14px;
   color: var(--muted);
-  background: #FFF9E6;
+  background: var(--white);
   padding: 10px 14px;
   border-radius: 8px;
   flex: 1;
@@ -703,13 +703,13 @@ img[src$="garlic.png"]{
 }
 
 .user-message{
-  background: #E8F5E9;
+  background: var(--light-blue);
   align-self: flex-end;
   margin-left: auto;
 }
 
 .bot-message{
-  background: #F5F5F5;
+  background:  var(--white);
   align-self: flex-start;
   margin-right: auto;
 }
@@ -721,7 +721,7 @@ img[src$="garlic.png"]{
 
 .error-message{
   background: #FFEBEE !important;
-  color: #C62828;
+  color: var(--red);
 }
 
 .chat-input-wrapper{
@@ -731,7 +731,7 @@ img[src$="garlic.png"]{
 
 .chat-input{
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid var(--gray);
   border-radius: 8px;
   padding: 16px 50px 16px 16px;
   font-family: inherit;
@@ -739,6 +739,7 @@ img[src$="garlic.png"]{
   line-height: 1.5;
   resize: vertical;
   min-height: 120px;
+  background-color: var(--light-blue);
 }
 
 .chat-input:focus{
