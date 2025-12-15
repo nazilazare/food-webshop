@@ -9,10 +9,9 @@
 </head>
 
 <body>
-    <!-- Backdrop for drawer -->
     <div class="backdrop" id="backdrop" hidden></div>
 
-    <!-- Drawer (popover menu) -->
+    <!-- Side drawer menu -->
     <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Main menu">
         <div class="drawer__header">
             <button class="icon-btn" id="closeMenu" aria-label="Close menu">✕</button>
@@ -26,7 +25,7 @@
         </nav>
     </aside>
 
-    <!-- Header -->
+    <!-- Header with menu, logo, and cart -->
     <header class="topbar">
         <button class="icon-btn" id="openMenu" aria-label="Open menu" aria-controls="drawer"
             aria-expanded="false">☰</button>
@@ -34,7 +33,7 @@
         <a class="cart-btn" href="#checkout" aria-label="Go to checkout">●</a>
     </header>
 
-    <!-- Chat Page -->
+    <!-- Chat interface -->
     <main class="chat-page">
         <div class="chat-container">
             <div class="chat-box">
@@ -43,9 +42,8 @@
                     <span class="chat-prompt">What can I help you with today?</span>
                 </div>
                 
-                <!-- Messages Area -->
+                <!-- Messages area -->
                 <div class="chat-messages" id="chatMessages">
-                    <!-- Messages will appear here -->
                 </div>
                 
                 <div class="chat-input-wrapper">
@@ -68,7 +66,7 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Chat functionality
+        // Chat functionality - sends messages to OpenAI API
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
         const chatMessages = document.getElementById('chatMessages');
@@ -76,22 +74,16 @@
         async function sendMessage() {
             const message = chatInput.value.trim();
             if (message) {
-                // Disable input while processing
+                // Disable inputs during API call
                 chatInput.disabled = true;
                 sendBtn.disabled = true;
 
-                // Create user message element
+                // Display user message
                 const messageDiv = document.createElement('div');
                 messageDiv.className = 'chat-message user-message';
                 messageDiv.textContent = message;
-                
-                // Add to messages container
                 chatMessages.appendChild(messageDiv);
-                
-                // Clear input
                 chatInput.value = '';
-                
-                // Scroll to bottom
                 chatMessages.scrollTop = chatMessages.scrollHeight;
                 
                 // Show typing indicator
@@ -102,7 +94,7 @@
                 chatMessages.scrollTop = chatMessages.scrollHeight;
 
                 try {
-                    // Call OpenAI API via our server
+                    // Call API
                     const response = await fetch('/api/chat', {
                         method: 'POST',
                         headers: {
@@ -111,7 +103,6 @@
                         body: JSON.stringify({ message })
                     });
 
-                    // Remove typing indicator
                     typingDiv.remove();
 
                     if (!response.ok) {
@@ -120,7 +111,7 @@
 
                     const data = await response.json();
                     
-                    // Create bot response element
+                    // Display bot response
                     const botMessageDiv = document.createElement('div');
                     botMessageDiv.className = 'chat-message bot-message';
                     botMessageDiv.textContent = data.reply;
@@ -130,27 +121,23 @@
                     console.error('Error:', error);
                     typingDiv.remove();
                     
-                    // Show error message
                     const errorDiv = document.createElement('div');
                     errorDiv.className = 'chat-message bot-message error-message';
                     errorDiv.textContent = 'Sorry, I encountered an error. Please try again.';
                     chatMessages.appendChild(errorDiv);
                 }
 
-                // Re-enable input
                 chatInput.disabled = false;
                 sendBtn.disabled = false;
                 chatInput.focus();
-                
-                // Scroll to bottom
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
         }
 
-        // Send on button click
+        // Send message on button click
         sendBtn.addEventListener('click', sendMessage);
 
-        // Send on Enter key (but allow Shift+Enter for new line)
+        // Send on Enter (Shift+Enter for new line)
         chatInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
