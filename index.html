@@ -9,16 +9,16 @@
 </head>
 
 <body>
-    <!-- Backdrop for drawer -->
     <div class="backdrop" id="backdrop" hidden></div>
 
-    <!-- Drawer (popover menu) -->
+    <!-- This is the side menu (drawer) that slides in when you click the hamburger icon -->
     <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Main menu">
         <div class="drawer__header">
             <button class="icon-btn" id="closeMenu" aria-label="Close menu">✕</button>
             <div class="brand">FRAM</div>
         </div>
 
+        <!-- This nav element contains the actual menu links -->
         <nav class="drawer__nav" aria-label="Primary navigation">
             <a href="products.html">PRODUCTS</a>
             <a href="chat.html">CHAT</a>
@@ -26,15 +26,17 @@
         </nav>
     </aside>
 
-    <!-- Header -->
+    <!-- This is the header bar at the top of the page that stays visible -->
     <header class="topbar">
         <button class="icon-btn" id="openMenu" aria-label="Open menu" aria-controls="drawer"
             aria-expanded="false">☰</button>
+        
         <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">FRAM</a>
+        
         <a class="cart-btn" href="#checkout" aria-label="Go to checkout">●</a>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero section -->
     <section class="hero" aria-label="Hero section">
         <div class="hero__inner">
             <h1 class="hero__title">FRAM</h1>
@@ -44,10 +46,12 @@
     </section>
 
     <main class="page">
-        <!-- Two feature cards -->
+        <!-- Feature cards -->
         <section class="features" aria-label="Highlights">
+            <!-- FIRST CARD: Seasonal Selection -->
             <article class="feature-card" id="products" aria-labelledby="seasonal-title">
                 <h2 class="feature-card__title" id="seasonal-title">SHOP OUR SEASONAL<br />SELECTION</h2>
+                
                 <p class="feature-card__sub">Updated every week</p>
 
                 <img class="feature-card__img seasonal-img" src="images/seasonal.png"
@@ -60,8 +64,10 @@
                 <a class="btn" href="products.html">Browse our selection</a>
             </article>
 
+            <!-- SECOND CARD: Chat Feature -->
             <article class="feature-card" id="chat" aria-labelledby="ask-title">
                 <h2 class="feature-card__title" id="ask-title">ASK US ABOUT<br />ANYTHING</h2>
+                
                 <p class="feature-card__sub">All your questions answered</p>
 
                 <img class="feature-card__img seasonal-img" src="images/about.png"
@@ -75,7 +81,7 @@
             </article>
         </section>
 
-        <!-- How it works -->
+        <!-- This section explains how the service works in 4 steps -->
         <section class="how" aria-labelledby="how-title">
             <div class="how__left">
                 <h2 class="how__title" id="how-title">THIS IS HOW IT<br />WORKS</h2>
@@ -118,12 +124,11 @@
             </div>
         </section>
 
-        <!-- Popular -->
+        <!-- Popular products -->
         <section class="popular" aria-labelledby="popular-title">
             <h2 class="popular__title" id="popular-title">POPULAR PRODUCE</h2>
 
             <div class="products">
-                <!-- Product 1 -->
                 <article class="product">
                     <div class="product__media">
                         <img src="images/oats.png" alt="Oats" />
@@ -138,7 +143,6 @@
                     </div>
                 </article>
 
-                <!-- Product 2 -->
                 <article class="product">
                     <div class="product__media">
                         <img src="images/redOnions.png" alt="Red onions" />
@@ -153,7 +157,6 @@
                     </div>
                 </article>
 
-                <!-- Product 3 -->
                 <article class="product">
                     <div class="product__media">
                         <img src="images/garlic.png" alt="Garlic" />
@@ -170,6 +173,7 @@
             </div>
         </section>
 
+        <!-- Footer that contains the brand name and a newsletter signup form -->
         <footer class="footer">
             <div class="footer__inner">
                 <h1 class="footer__brand">FRAM</h1>
